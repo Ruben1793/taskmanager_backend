@@ -35,8 +35,8 @@ class TaskViewSet(viewsets.ModelViewSet):
     pagination_class = StandardResultSetPagination
     filter_backends = [filters.SearchFilter, filters.OrderingFilter]
     search_fields = ['title']
-    ordering_fields = ['completed']
-    ordering = ['completed']
+    ordering_fields = ['completed', '-created_at']
+    ordering = ['completed', '-created_at']
 
     def get_queryset(self):
         user = self.request.user
